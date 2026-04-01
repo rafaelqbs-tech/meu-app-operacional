@@ -71,9 +71,9 @@ with aba_orc:
     )
 
     modelos_base = [
-        {"id": "jato", "nome": "CITATION 560 ULTRA", "km_padrão": 41.0, "vel": 340, "p_min": 5000.0, "p_exec": 5000.0},
-        {"id": "b200", "nome": "KING AIR B200", "km_padrão": 31.0, "vel": 240, "p_min": 4500.0, "p_exec": 4000.0},
-        {"id": "c90", "nome": "KING AIR C90", "km_padrão": 28.0, "vel": 220, "p_min": 4000.0, "p_exec": 4000.0}
+        {"id": "jato", "nome": "CITATION 560 ULTRA", "km_padrão": 47.0, "vel": 340, "p_min": 5000.0, "p_exec": 5000.0},
+        {"id": "b200", "nome": "KING AIR B200", "km_padrão": 36.0, "vel": 240, "p_min": 4500.0, "p_exec": 4000.0},
+        {"id": "c90", "nome": "KING AIR C90", "km_padrão": 33.0, "vel": 220, "p_min": 4000.0, "p_exec": 4000.0}
     ]
 
     cols_orc = st.columns(3)
@@ -100,7 +100,7 @@ with aba_orc:
 
             if is_uti:
                 # MODELO UTI
-                amb = "Ambulância terrestre de *ORIGEM E DESTINO* inclusa." if has_ao and has_ad else ("Ambulância terrestre de *ORIGEM* inclusa." if has_ao else ("Ambulância terrestre de *DESTINO* inclusa." if has_ad else "Não inclusa."))
+                amb = "Ambulância terrestre de *ORIGEM E DESTINO* inclusa." if has_ao and has_ad else ("Ambulância terrestre de *ORIGEM* inclusa no orçamento." if has_ao else ("Ambulância terrestre de *DESTINO* inclusa no orçamento." if has_ad else "Não inclusa no orçamento."))
                 msg = f"*{m['nome']} - UTI AÉREA*\n\n{cron_txt}1 Médico + 1 Enfermeiro\n1 paciente + {2 if 'C90' not in m['nome'] else 1} acompanhante(s)\n{amb}\nValor: R$ {v_fin:,.2f}\n\n"
             else:
                 # MODELO EXECUTIVO
