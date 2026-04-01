@@ -100,7 +100,7 @@ with aba_orc:
 
             if is_uti:
                 # MODELO UTI
-                amb = "Ambulância terrestre de *ORIGEM E DESTINO* inclusa." if has_ao and has_ad else ("Ambulância terrestre de *ORIGEM* inclusa no orçamento." if has_ao else ("Ambulância terrestre de *DESTINO* inclusa no orçamento." if has_ad else "Não inclusa no orçamento."))
+                amb = "Ambulância terrestre de *ORIGEM E DESTINO* inclusas no orçamento." if has_ao and has_ad else ("Ambulância terrestre de *ORIGEM* inclusa no orçamento." if has_ao else ("Ambulância terrestre de *DESTINO* inclusa no orçamento." if has_ad else "Não inclusa no orçamento."))
                 msg = f"*{m['nome']} - UTI AÉREA*\n\n{cron_txt}1 Médico + 1 Enfermeiro\n1 paciente + {2 if 'C90' not in m['nome'] else 1} acompanhante(s)\n{amb}\nValor: R$ {v_fin:,.2f}\n\n"
             else:
                 # MODELO EXECUTIVO
